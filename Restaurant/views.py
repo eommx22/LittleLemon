@@ -26,24 +26,24 @@ def msg(request):
 class UserViewSet(ModelViewSet):
    queryset = User.objects.all()
    serializer_class = UserSerializer
-   permission_classes = [IsAuthenticated] 
+   #permission_classes = [IsAuthenticated] 
    
 
 class MenuItemsView(ListCreateAPIView):
     
-    permission_classes =[IsAuthenticated]
+    #permission_classes =[IsAuthenticated]
     queryset= Menu.objects.all()
     serializer_class = MenuItemSerializer
     
 class SingleMenuItemView(RetrieveUpdateAPIView,DestroyAPIView):
     
-    permission_classes=[IsAuthenticated]
+    #permission_classes=[IsAuthenticated]
     queryset = Menu.objects.all()
     serializer_class = MenuItemSerializer
   
     
 class BookingViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
     
