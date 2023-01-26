@@ -27,21 +27,23 @@ class UserViewSet(ModelViewSet):
    queryset = User.objects.all()
    serializer_class = UserSerializer
    permission_classes = [IsAuthenticated] 
+   
 
 class MenuItemsView(ListCreateAPIView):
-    authentication_classes([TokenAuthentication])
+    
     permission_classes =[IsAuthenticated]
     queryset= Menu.objects.all()
     serializer_class = MenuItemSerializer
     
 class SingleMenuItemView(RetrieveUpdateAPIView,DestroyAPIView):
-    authentication_classes([TokenAuthentication])
+    
     permission_classes=[IsAuthenticated]
     queryset = Menu.objects.all()
     serializer_class = MenuItemSerializer
-    #lookup_fields = ['title']
+  
     
 class BookingViewSet(ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
     
