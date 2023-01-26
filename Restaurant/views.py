@@ -5,10 +5,12 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Menu, Booking
 from .serializers import MenuItemSerializer, BookingSerializer
 
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes,authentication_classes
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication 
+from rest_framework.response import Response
 
-from django.http import JsonResponse
+
 
 # Create your views here.
 # def index(request):
@@ -18,13 +20,17 @@ from django.http import JsonResponse
 @permission_classes([IsAuthenticated])
 @authentication_classes([TokenAuthentication])
 def msg(request):
-    return JsonResponse({"message":"This view is protected"})
+    return Response({"message":"This view is protected"})
 
 class MenuItemsView(ListCreateAPIView):
+    #authentication_classes([TokenAuthentication])
+    #permission_classes =[IsAuthenticated]
     queryset= Menu.objects.all()
     serializer_class = MenuItemSerializer
     
 class SingleMenuItemView(RetrieveUpdateAPIView,DestroyAPIView):
+    #authentication_classes([TokenAuthentication])
+    #permission_classes=[IsAuthenticated]
     queryset = Menu.objects.all()
     serializer_class = MenuItemSerializer
     #lookup_fields = ['title']
