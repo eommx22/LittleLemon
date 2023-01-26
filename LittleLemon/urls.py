@@ -17,13 +17,14 @@ Including another URLconf
 #update URLConf by including URL patterns of restaurant app
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
-from views import BookingViewSet
+
+from Restaurant.views import BookingViewSet
+from rest_framework.routers import DefaultRouter
 
 
-router = routers.DefaultRouter
+router = DefaultRouter()
 
-router.register(r'tables', BookingViewSet)
+router.register(r'tables', BookingViewSet )
 
 
 urlpatterns = [
