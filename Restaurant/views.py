@@ -14,8 +14,8 @@ from .serializers import UserSerializer
 
 
 # Create your views here.
-# def index(request):
-#     return render(request, 'index.html', {})
+def index(request):
+     return render(request, 'index.html', {})
 
 @api_view()
 @permission_classes([IsAuthenticated])
@@ -46,5 +46,4 @@ class BookingViewSet(ModelViewSet):
     #permission_classes = [IsAuthenticated]
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    
-    #permission_classes = [permissions.IsAuthenticated] 
+  

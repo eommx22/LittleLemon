@@ -31,7 +31,7 @@ urlpatterns = [
    path('admin/', admin.site.urls),
    path('api/', include('Restaurant.urls')),
 
-   path('booking/', include(router.urls)),
+   path('api/booking/', include(router.urls)),
    
    path('auth/', include('djoser.urls')),
    path('auth/', include('djoser.urls.authtoken'))
